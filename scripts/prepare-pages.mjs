@@ -1,11 +1,28 @@
-import { copyFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  renameSync,
+  writeFileSync,
+} from 'node:fs';
 
 const outputDirectory = new URL('../dist/client/', import.meta.url);
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '');
 const locales = ['en', 'it', 'de', 'fr', 'ja', 'ko', 'es', 'ar'];
 
 if (!siteUrl) {
-  throw new Error('NEXT_PUBLIC_SITE_URL is required to prepare the Pages artifact.');
+  throw new Error(
+    'NEXT_PUBLIC_SITE_URL is required to prepare the Pages artifact.',
+  );
+}
+
+const assetPrefix = new URL(siteUrl).pathname.replace(/^\/+|\/+$/g, '');
+if (assetPrefix) {
+  const prefixedAssets = new URL(`${assetPrefix}/_next/`, outputDirectory);
+  const rootAssets = new URL('_next/', outputDirectory);
+  if (existsSync(prefixedAssets)) {
+    renameSync(prefixedAssets, rootAssets);
+  }
 }
 
 for (const locale of locales.filter((value) => value !== 'en')) {
