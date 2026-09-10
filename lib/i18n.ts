@@ -73,4 +73,4 @@ export const uiLabels: Record<Locale, UiLabels> = {
 
 // Japanese and Korean content use their local script. Arabic pages are rendered RTL.
 export const localeDirection = (locale: Locale) => (locale === 'ar' ? 'rtl' : 'ltr');
-export const localePath = (locale: Locale) => (locale === 'en' ? '/' : `/${locale}`);
+export const localePath = (locale: Locale) => (locale === 'en' ? '/' : `/${locale}/`);
