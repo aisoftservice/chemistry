@@ -1,15 +1,15 @@
 import { ArrowRight, Atom, Camera, Check, FlaskConical, Languages, PencilRuler, ScanLine, Sparkles } from 'lucide-react';
-import { APP_STORE_URL, DEVELOPER_URL, SITE_URL } from '@/lib/site';
+import { APP_STORE_URL, DEVELOPER_URL, SITE_URL, sitePath } from '@/lib/site';
 import { copy, localeDirection, localePath, uiLabels, type Locale } from '@/lib/i18n';
 
 const featureIcons = [Camera, Sparkles, Atom, PencilRuler];
 const toolIcons = [Atom, PencilRuler, FlaskConical, Languages];
 
 const screenshots = [
-  { src: '/chem-homework.webp', alt: 'Chem AI camera scanner solving a chemistry homework problem' },
-  { src: '/step-by-step.webp', alt: 'Chem AI showing a detailed step-by-step chemistry solution' },
-  { src: '/organic-structure.webp', alt: 'Chem AI drawing an organic chemical structure' },
-  { src: '/text-problem.webp', alt: 'Chem AI answering a typed chemistry question' },
+  { src: sitePath('/chem-homework.webp'), alt: 'Chem AI camera scanner solving a chemistry homework problem' },
+  { src: sitePath('/step-by-step.webp'), alt: 'Chem AI showing a detailed step-by-step chemistry solution' },
+  { src: sitePath('/organic-structure.webp'), alt: 'Chem AI drawing an organic chemical structure' },
+  { src: sitePath('/text-problem.webp'), alt: 'Chem AI answering a typed chemistry question' },
 ];
 
 const getStructuredData = (locale: Locale) => ({
@@ -59,10 +59,10 @@ export function LandingPage({ locale = 'en' }: { locale?: Locale }) {
     <main lang={locale} dir={localeDirection(locale)}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <nav className="nav-shell" aria-label="Main navigation">
-        <a className="brand" href="#top" aria-label={t.homeTitle} title={t.homeTitle}><img src="/app-icon.webp" alt="Chem AI app icon" title="Chem AI app icon" width="42" height="42" /><span>CHEM AI</span></a>
+        <a className="brand" href="#top" aria-label={t.homeTitle} title={t.homeTitle}><img src={sitePath('/app-icon.webp')} alt="Chem AI app icon" title="Chem AI app icon" width="42" height="42" /><span>CHEM AI</span></a>
         <div className="nav-links"><a href="#features">{t.nav[0]}</a><a href="#how-it-works">{t.nav[1]}</a><a href="#faq">{t.nav[2]}</a></div>
         <div className="nav-actions">
-          <details className="language-menu"><summary aria-label="Select language">{locale.toUpperCase()}</summary><div>{Object.entries(copy).map(([code, item]) => <a key={code} href={localePath(code as Locale)} hrefLang={code} aria-current={code === locale ? 'page' : undefined}>{item.language}</a>)}</div></details>
+          <details className="language-menu"><summary aria-label="Select language">{locale.toUpperCase()}</summary><div>{Object.entries(copy).map(([code, item]) => <a key={code} href={sitePath(localePath(code as Locale))} hrefLang={code} aria-current={code === locale ? 'page' : undefined}>{item.language}</a>)}</div></details>
           <a className="nav-cta" href={APP_STORE_URL} target="_blank" rel="noreferrer" title={t.getApp}>{t.getApp} <ArrowRight size={16} aria-hidden="true" /></a>
         </div>
       </nav>
@@ -85,8 +85,8 @@ export function LandingPage({ locale = 'en' }: { locale?: Locale }) {
           <div className="hero-visual" aria-label="Chem AI app preview">
             <div className="formula formula-one">C₆H₁₂O₆</div><div className="formula formula-two">H₂SO₄</div>
             <div className="molecule"><span /><span /><span /><span /></div>
-            <div className="phone phone-back"><img src="/step-by-step.webp" alt="Step-by-step chemistry solution in Chem AI" title="Chem AI step-by-step solution" /></div>
-            <div className="phone phone-front"><img src="/chem-homework.webp" alt="Chemistry homework scanner in Chem AI" title="Chem AI homework scanner" /></div>
+            <div className="phone phone-back"><img src={sitePath('/step-by-step.webp')} alt="Step-by-step chemistry solution in Chem AI" title="Chem AI step-by-step solution" /></div>
+            <div className="phone phone-front"><img src={sitePath('/chem-homework.webp')} alt="Chemistry homework scanner in Chem AI" title="Chem AI homework scanner" /></div>
             <div className="floating-card scan-card"><ScanLine size={20} aria-hidden="true" /><span><small>{labels.scanComplete}</small>{labels.problemRecognized}</span><Check size={17} aria-hidden="true" /></div>
             <div className="floating-card answer-card"><Sparkles size={19} aria-hidden="true" /><span><small>{labels.aiAnswer}</small>{labels.readyInSeconds}</span></div>
           </div>
@@ -136,18 +136,18 @@ export function LandingPage({ locale = 'en' }: { locale?: Locale }) {
       </section>
 
       <section className="final-cta">
-        <div className="cta-mark"><img src="/app-icon.webp" alt="Chem AI app icon" title="Chem AI: Chemistry Solver" width="92" height="92" /></div>
+        <div className="cta-mark"><img src={sitePath('/app-icon.webp')} alt="Chem AI app icon" title="Chem AI: Chemistry Solver" width="92" height="92" /></div>
         <div className="eyebrow"><span /> {t.ctaEyebrow}</div><h2>{t.ctaTitle}<br /><em>{t.ctaAccent}</em></h2>
         <p>{t.ctaCopy}</p><AppStoreButton locale={locale} />
       </section>
 
       <footer>
-        <a className="brand footer-brand" href="#top" title="Back to Chem AI home"><img src="/app-icon.webp" alt="Chem AI app icon" title="Chem AI app icon" width="36" height="36" /><span>CHEM AI</span></a>
+        <a className="brand footer-brand" href="#top" title="Back to Chem AI home"><img src={sitePath('/app-icon.webp')} alt="Chem AI app icon" title="Chem AI app icon" width="36" height="36" /><span>CHEM AI</span></a>
         <p>{t.footerCopy}</p>
         <div className="footer-links"><a href="#about">{t.about}</a><a href="mailto:lens.ai@outlook.com">{t.contact}</a><a href="https://kksoftservice.github.io/chemistry_ai/en/policy.html" target="_blank" rel="noreferrer">{t.privacy}</a><a href="https://kksoftservice.github.io/chemistry_ai/en/support.html" target="_blank" rel="noreferrer">{t.terms}</a><a href={APP_STORE_URL} target="_blank" rel="noreferrer">App Store</a></div>
         <small>{labels.copyright}</small>
       </footer>
-      <div className="mobile-cta"><span><img src="/app-icon.webp" alt="Chem AI app icon" title="Chem AI app icon" width="42" height="42" /><b>{t.getApp}<small>{t.freeNote} · App Store</small></b></span><a href={APP_STORE_URL} target="_blank" rel="noreferrer">{t.download}</a></div>
+      <div className="mobile-cta"><span><img src={sitePath('/app-icon.webp')} alt="Chem AI app icon" title="Chem AI app icon" width="42" height="42" /><b>{t.getApp}<small>{t.freeNote} · App Store</small></b></span><a href={APP_STORE_URL} target="_blank" rel="noreferrer">{t.download}</a></div>
     </main>
   );
 }

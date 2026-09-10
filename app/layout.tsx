@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Scan chemistry homework and get clear, step-by-step answers with Chem AI. Explore the periodic table, draw structures, and calculate molar mass on iPhone.',
   keywords: ['chemistry solver', 'chemistry homework helper', 'chemistry scanner', 'molar mass calculator'],
   applicationName: 'Chem AI: Chemistry Solver', category: 'education', alternates: { canonical: SITE_URL },
-  appleWebApp: { capable: true, title: 'Chem AI' }, icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }], apple: '/app-icon.webp' },
+  appleWebApp: { capable: true, title: 'Chem AI' }, icons: { icon: [{ url: `${SITE_URL}/favicon.svg`, type: 'image/svg+xml' }], apple: `${SITE_URL}/app-icon.webp` },
   openGraph: { type: 'website', siteName: 'Chem AI', url: SITE_URL, title: 'Chem AI — Complex chemistry. Clear answers.', description: 'Scan chemistry problems and learn from clear, step-by-step AI explanations on iPhone.' },
   twitter: { card: 'summary', title: 'Chem AI — AI Chemistry Solver for iPhone', description: 'Scan chemistry problems and get clear, step-by-step explanations.' },
   robots: { index: true, follow: true },
