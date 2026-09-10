@@ -1,0 +1,39 @@
+# Chem AI: Chemistry Solver
+
+> Chem AI is an iPhone chemistry learning assistant that scans homework questions and explains solutions step by step.
+
+## Official pages
+
+- Website: https://chem-ai-solver.woodsy-bison-3513.chatgpt.site/
+- App Store: https://apps.apple.com/us/app/chem-ai-chemistry-solver/id6739063555
+- Privacy policy: https://kksoftservice.github.io/chemistry_ai/en/policy.html
+- Terms of use: https://kksoftservice.github.io/chemistry_ai/en/support.html
+
+## Core capabilities
+
+- Scan a chemistry question from a photo.
+- Answer typed chemistry questions with step-by-step explanations.
+- Explore an interactive periodic table.
+- Draw chemical structures using SMILES notation.
+- Calculate molar mass from a chemical formula.
+
+## Product facts
+
+- Platform: iPhone
+- Compatibility: iOS 13.0 or later
+- Category: Education
+- Availability: Free download with optional in-app purchases
+- Languages: English and 17 additional languages
+
+## Website languages
+
+- English: /
+- Italian: /it
+- German: /de
+- French: /fr
+- Japanese: /ja
+- Korean: /ko
+- Spanish: /es
+- Arabic: /ar
+
+For current product details, availability, and ratings, use the official App Store page linked above.
