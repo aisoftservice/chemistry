@@ -1,6 +1,6 @@
 import { ArrowRight, Atom, Camera, Check, FlaskConical, Languages, PencilRuler, ScanLine, Sparkles } from 'lucide-react';
 import { APP_STORE_URL, DEVELOPER_URL, SITE_URL } from '@/lib/site';
-import { copy, localeDirection, localePath, type Locale } from '@/lib/i18n';
+import { copy, localeDirection, localePath, uiLabels, type Locale } from '@/lib/i18n';
 
 const featureIcons = [Camera, Sparkles, Atom, PencilRuler];
 const toolIcons = [Atom, PencilRuler, FlaskConical, Languages];
@@ -53,6 +53,7 @@ function AppStoreButton({ locale, compact = false }: { locale: Locale; compact?:
 
 export function LandingPage({ locale = 'en' }: { locale?: Locale }) {
   const t = copy[locale];
+  const labels = uiLabels[locale];
   const structuredData = getStructuredData(locale);
   return (
     <main lang={locale} dir={localeDirection(locale)}>
@@ -86,11 +87,11 @@ export function LandingPage({ locale = 'en' }: { locale?: Locale }) {
             <div className="molecule"><span /><span /><span /><span /></div>
             <div className="phone phone-back"><img src="/step-by-step.webp" alt="Step-by-step chemistry solution in Chem AI" title="Chem AI step-by-step solution" /></div>
             <div className="phone phone-front"><img src="/chem-homework.webp" alt="Chemistry homework scanner in Chem AI" title="Chem AI homework scanner" /></div>
-            <div className="floating-card scan-card"><ScanLine size={20} aria-hidden="true" /><span><small>SCAN COMPLETE</small>Problem recognized</span><Check size={17} aria-hidden="true" /></div>
-            <div className="floating-card answer-card"><Sparkles size={19} aria-hidden="true" /><span><small>AI ANSWER</small>Ready in seconds</span></div>
+            <div className="floating-card scan-card"><ScanLine size={20} aria-hidden="true" /><span><small>{labels.scanComplete}</small>{labels.problemRecognized}</span><Check size={17} aria-hidden="true" /></div>
+            <div className="floating-card answer-card"><Sparkles size={19} aria-hidden="true" /><span><small>{labels.aiAnswer}</small>{labels.readyInSeconds}</span></div>
           </div>
         </div>
-        <div className="hero-bottom-note"><span>Trusted by students worldwide</span><i /></div>
+        <div className="hero-bottom-note"><span>{labels.trustedWorldwide}</span><i /></div>
       </section>
 
       <section className="feature-section" id="features">
@@ -144,7 +145,7 @@ export function LandingPage({ locale = 'en' }: { locale?: Locale }) {
         <a className="brand footer-brand" href="#top" title="Back to Chem AI home"><img src="/app-icon.webp" alt="Chem AI app icon" title="Chem AI app icon" width="36" height="36" /><span>CHEM AI</span></a>
         <p>{t.footerCopy}</p>
         <div className="footer-links"><a href="#about">{t.about}</a><a href="mailto:lens.ai@outlook.com">{t.contact}</a><a href="https://kksoftservice.github.io/chemistry_ai/en/policy.html" target="_blank" rel="noreferrer">{t.privacy}</a><a href="https://kksoftservice.github.io/chemistry_ai/en/support.html" target="_blank" rel="noreferrer">{t.terms}</a><a href={APP_STORE_URL} target="_blank" rel="noreferrer">App Store</a></div>
-        <small>© 2025 Chemistry AI. Apple and App Store are trademarks of Apple Inc.</small>
+        <small>{labels.copyright}</small>
       </footer>
       <div className="mobile-cta"><span><img src="/app-icon.webp" alt="Chem AI app icon" title="Chem AI app icon" width="42" height="42" /><b>{t.getApp}<small>{t.freeNote} · App Store</small></b></span><a href={APP_STORE_URL} target="_blank" rel="noreferrer">{t.download}</a></div>
     </main>
